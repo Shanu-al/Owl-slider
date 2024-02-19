@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <title>JS Practice</title>
+</head>
+<body>
+    <h1>Counter</h1>
+    <input type="number" value="0" id="value">
+    <div class="button-container">
+        <button class="btn decrease">Decrease</button>
+        <button class="btn Reset">Reset</button>
+        <button class="btn increase">Increase</button>
+    </div>
+    <br>
+    <div class="quantity-container">
+        <button id="decrease">-</button>
+        <input type="text" id="quantity" value="1">
+        <button id="increase">+</button>
+      </div>
+<br>
+
+   
+    <script>
+        let count = 0;
+        const d_btn = document.querySelector('#value');
+        const i_btn = document.querySelectorAll('.btn');
+       i_btn.forEach(function(btn){
+        btn.addEventListener("click", function(e){
+            const style = e.currentTarget.classList;
+            if(style.contains('decrease')){
+                count --;
+            }else if(style.contains('increase')){
+               count ++;
+            }else {
+                count = 0
+            }
+            d_btn.textContent = count;
+        })
+       })
+       
+       document.addEventListener('DOMContentLoaded', function () {
+  // Get elements
+  const decreaseButton = document.getElementById('decrease');
+  const increaseButton = document.getElementById('increase');
+  const quantityInput = document.getElementById('quantity');
+
+  // Event listener for the decrease button
+  decreaseButton.addEventListener('click', function () {
+    let currentValue = parseInt(quantityInput.value, 10);
+    if (currentValue > 1) {
+      quantityInput.value = currentValue - 1;
+    }
+  });
+
+  // Event listener for the increase button
+  increaseButton.addEventListener('click', function () {
+    let currentValue = parseInt(quantityInput.value, 10);
+    quantityInput.value = currentValue + 1;
+  });
+});
+
+function toggleAnswer(questionNumber) {
+  // Get the answer element
+  const answerElement = document.getElementById(`answer${questionNumber}`);
+
+  // Get all answer elements
+  const allAnswerElements = document.querySelectorAll('.answer');
+
+  // Hide all answer elements
+  allAnswerElements.forEach((element) => {
+    if (element !== answerElement) {
+      element.style.display = 'none';
+    }
+  });
+
+  // Toggle the display of the clicked answer element
+  if (answerElement.style.display === 'block') {
+    answerElement.style.display = 'none';
+  } else {
+    answerElement.style.display = 'block';
+  }
+}
+
+       
+    </script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+.item{
+    background-color: red;
+}
+.owl-theme .owl-nav .disabled {
+    opacity: 0 !important;
+}
